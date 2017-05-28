@@ -9,30 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = "";
-        this.name2 = "fgfg";
-        this.pInfo = "Инфо";
-        this.buttonTitle = "Жми сюда";
-        this.cardIndex = 5;
+var Card = (function () {
+    function Card() {
+        this.onSubmit = new core_1.EventEmitter();
     }
-    AppComponent.prototype.increase = function ($event) {
-        alert("Проверь console)");
-        console.log($event);
+    Card.prototype.send = function (model) {
+        this.onSubmit.emit(model);
     };
-    AppComponent.prototype.onSubmit = function (text) {
-        console.log(text);
-    };
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], Card.prototype, "onSubmit", void 0);
+    Card = __decorate([
         core_1.Component({
-            selector: "my-app",
-            templateUrl: "app/templates/app.component.html",
-            styleUrls: ["app/css/app.component.css"]
+            selector: "card",
+            template: "\n    <input [(ngModel)] = text (ngModelChange) = \"send($event)\">\n    ",
+            styles: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], Card);
+    return Card;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.Card = Card;
+//# sourceMappingURL=card.component.js.map

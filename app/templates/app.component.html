@@ -1,3 +1,7 @@
 <label>Введите имя:</label>
 <input [(ngModel)]="name" placeholder="name">
-<h1>Добро пожаловать {{name}}!</h1>
+<h1>Добро пожаловать {{name}}! и {{name2}}</h1>
+<p [textContent]="pInfo"></p>
+<button (click)="increase($event)">{{buttonTitle}}</button>
+
+<card (onSubmit)="onSubmit($event)"></card>

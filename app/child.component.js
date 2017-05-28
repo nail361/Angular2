@@ -9,30 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = "";
-        this.name2 = "fgfg";
-        this.pInfo = "Инфо";
-        this.buttonTitle = "Жми сюда";
-        this.cardIndex = 5;
+var Card = (function () {
+    function Card() {
     }
-    AppComponent.prototype.increase = function ($event) {
-        alert("Проверь console)");
-        console.log($event);
-    };
-    AppComponent.prototype.onSubmit = function (text) {
-        console.log(text);
-    };
-    AppComponent = __decorate([
+    Card = __decorate([
         core_1.Component({
-            selector: "my-app",
-            templateUrl: "app/templates/app.component.html",
-            styleUrls: ["app/css/app.component.css"]
+            selector: "card",
+            template: "\n    <p> \u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u043D\u043E\u043C\u0435\u0440 {{cardIndex}}</p>\n    ",
+            styles: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], Card);
+    return Card;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.Card = Card;
+//# sourceMappingURL=child.component.js.map
