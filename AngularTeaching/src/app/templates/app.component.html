@@ -1,0 +1,16 @@
+<h1 underlined>
+  {{title}}
+</h1>
+
+<div *ngIf="condition; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Then template</ng-template>
+<ng-template #elseBlock>Else template</ng-template>
+<button (click)="toggle()">Toggle</button>
+
+<ul>
+    <li *ngFor="let card of cards">
+        {{card}}
+    </li>
+</ul>
+
+<app-form></app-form>
