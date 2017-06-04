@@ -1,16 +1,18 @@
-<h1 underlined>
-  {{title}}
+<h1>
+    Найди все совпадения
 </h1>
 
-<div *ngIf="condition; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>Then template</ng-template>
-<ng-template #elseBlock>Else template</ng-template>
-<button (click)="toggle()">Toggle</button>
+<button (click)="openModal('custom-modal-1')">Open Modal 1</button>
 
-<ul>
-    <li *ngFor="let card of cards">
-        {{card}}
-    </li>
-</ul>
-
-<app-form></app-form>
+<modal id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" [(ngModel)]="bodyText" />
+            </p>
+            <button (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>

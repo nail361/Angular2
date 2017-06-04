@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
-import { LogService } from '../services/log.service';
+import { ModalService } from '../services/modal.service';
 
 @Component({
+  moduleId: module.id.toString(),
   selector: 'app-root',
   templateUrl: '../templates/app.component.html',
   styleUrls: ['../styles/css/app.component.css'],
-  providers: [LogService]
+  providers: [ModalService]
 })
 export class AppComponent {
-    condition:boolean = true;
-    title = 'app works!';
-    cards:Array<number> = [1,2,3,4,5,6];
+    private bodyText:string = "Model 1";
 
-    constructor(private logService: LogService){}
+    constructor(private modalService: ModalService){}
 
-    toggle(){
-        this.condition = !this.condition;
-        this.logService.write(this.condition.toString());
+    openModal(id: string){
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string){
+        this.modalService.close(id);
     }
 }
