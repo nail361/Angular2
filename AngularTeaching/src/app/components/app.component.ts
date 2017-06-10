@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
-import { ModalService } from '../services/modal.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Response } from '@angular/http';
+import { HttpService } from '../services/http.service';
 
 @Component({
-  moduleId: module.id.toString(),
   selector: 'app-root',
   templateUrl: '../templates/app.component.html',
   styleUrls: ['../styles/css/app.component.css'],
-  providers: [ModalService]
+  providers: [HttpService]
 })
-export class AppComponent {
-    private bodyText:string = "Model 1";
+export class AppComponent implements OnInit, OnDestroy {
 
-    constructor(private modalService: ModalService){}
+    constructor(private httpService: HttpService){}
 
-    openModal(id: string){
-        this.modalService.open(id);
+    interval:any;
+    //data:string;
+
+    ngOnInit() {
+        this.interval = setInterval(() => {
+            this.GetData();
+        }, 1000);
     }
 
-    closeModal(id: string){
-        this.modalService.close(id);
+    ngOnDestroy() {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
     }
+
+    GetData(){
+        console.log("Getting Data");
+        //this.httpService.getData().subscribe((data: Response) => this.data = data.json());
+    }
+
 }
